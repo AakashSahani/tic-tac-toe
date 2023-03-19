@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&display=swap');
+
+:root {
+	/* Colors */
+	--darkNavy: rgb(26, 42, 51);
+	--darkNavyHover: #10212a;
+	--semiDarkNavy: rgb(31, 54, 65);
+	--silver: rgb(168, 191, 201);
+	--silverHover: rgb(219, 232, 237);
+	--lightBlue: rgb(49, 195, 189);
+	--lightBlueHover: rgb(101, 233, 228);
+	--lightYellow: rgb(242, 177, 55);
+	--lightYellowHover: rgb(255, 200, 96);
+}
+
+body {
+	font-family: 'Outfit', sans-serif;
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	background-color: var(--darkNavy);
+	color: var(--silver);
+}
+
+main {
+	display: flex;
+	flex-flow: column;
+	min-width: 300px;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+	padding: 1rem 2rem;
+}
+
+main > * {
+	width: 100%;
+}
+
+/* Button Styling */
+button {
+	border-radius: 1rem;
+	background-color: var(--lightYellowHover);
+	padding: 1rem;
+	border: none;
+	border-bottom: 0.5rem solid var(--lightYellow);
+	font-weight: bold;
+	width: 100%;
+}
+
+button:hover {
+	cursor: pointer;
+	background-color: var(--lightYellow);
+	border-bottom-color: var(--lightYellowHover);
+}
+
+.blue {
+	background-color: var(--lightBlueHover);
+	border-bottom: 0.5rem solid var(--lightBlue);
+}
+
+.blue:hover {
+	background-color: var(--lightBlue);
+	border-bottom-color: var(--lightBlueHover);
+}
+
+ul {
+	list-style: none;
+}
+
+/* Player Selection */
+.container {
+	background-color: var(--semiDarkNavy);
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 1rem;
+	border-bottom: 0.5rem solid var(--darkNavyHover);
+	padding: 0 1rem;
+}
+
+.container p {
+	font-weight: 700;
+}
+
+.container p:last-child {
+	color: var(--silver);
+	font-weight: normal;
+	font-size: 1rem;
+	opacity: 0.75;
+}
+
+.container form {
+	position: relative;
+	width: 100%;
+	display: flex;
+}
+
+.selection input[type='checkbox'] {
+	display: none;
+}
+
+.selection label {
+	padding: 2.5rem 0;
+	background-color: var(--darkNavy);
+	border-radius: 0.75rem;
+	width: 100%;
+	flex: 1;
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: all ease-in-out 0.3s;
+}
+
+.selection label::after {
+	content: 'O';
+	right: 2.5%;
+	top: 0.5rem;
+	height: 80%;
+	width: 50%;
+	display: flex;
+	cursor: pointer;
+	font-weight: 700;
+	font-size: 3rem;
+	position: absolute;
+	text-align: center;
+	align-items: center;
+	color: var(--darkNavy);
+	border-radius: 0.75rem;
+	justify-content: center;
+	background-color: var(--silver);
+	transition: all ease-in-out 0.3s;
+}
+
+.selection input[type='checkbox']:checked ~ label {
+	background-color: var(--silver);
+}
+
+.selection input[type='checkbox']:checked ~ label::after {
+	background-color: var(--darkNavy);
+	color: var(--silver);
+	content: 'X';
+	transform: translateX(-90%);
+}
+
+.game_button {
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin: auto;
+	gap: 1rem;
+}
+
+@media (min-width: 601px) {
+	main {
+		width: 30vw;
+	}
+}

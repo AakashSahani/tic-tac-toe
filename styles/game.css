@@ -1,0 +1,85 @@
+header {
+	display: flex;
+	flex-flow: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+header h1 {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+header h1 svg {
+	scale: 0.5;
+}
+
+.reset {
+	background-color: var(--silver);
+	color: var(--darkNavy);
+	border-bottom: 0.5rem solid var(--silverHover);
+}
+
+.turn {
+	background-color: var(--semiDarkNavy);
+	color: var(--silver);
+	border-bottom: 0.5rem solid var(--darkNavyHover);
+	padding: 0.5rem 2rem;
+	width: fit-content;
+}
+
+.game_grid {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-flow: column;
+}
+
+.game_grid ul {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+	gap: 1rem;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	padding: 0;
+	margin: 1rem auto;
+}
+
+.game_grid button {
+	width: 100%;
+	background-color: var(--semiDarkNavy);
+	border-bottom-color: var(--darkNavyHover);
+	height: 7rem;
+	width: 7rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+.score {
+	display: flex;
+	flex-flow: row;
+	align-items: center;
+	justify-content: space-evenly;
+	gap: 1rem;
+	width: 100%;
+	margin: 1rem auto;
+}
+
+.score > div {
+	padding: 1rem;
+	width: fit-content;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--lightBlue);
+	border-radius: 0.5rem;
+	width: 5rem;
+	max-height: 2rem;
+	text-align: center;
+}
