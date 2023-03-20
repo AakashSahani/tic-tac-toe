@@ -1,63 +1,94 @@
+body {
+	justify-content: flex-start;
+}
+
+main {
+	max-width: 350px;
+}
+
 header {
 	display: flex;
 	flex-flow: row;
 	justify-content: space-between;
+	padding: 1rem;
 	align-items: center;
+	width: 100%;
 }
 
 header h1 {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	width: fit-content;
+	padding: 0;
+	margin: 0;
 }
+
 header h1 svg {
-	scale: 0.5;
+	transform: scale(0.5);
 }
 
 .reset {
 	background-color: var(--silver);
 	color: var(--darkNavy);
 	border-bottom: 0.5rem solid var(--silverHover);
+	width: fit-content;
+	height: fit-content;
+	padding: 1rem;
+	border-bottom: 0.25rem solid var(--silverHover);
 }
 
 .turn {
 	background-color: var(--semiDarkNavy);
 	color: var(--silver);
-	border-bottom: 0.5rem solid var(--darkNavyHover);
-	padding: 0.5rem 2rem;
 	width: fit-content;
+	height: fit-content;
+	padding: 0.5rem 1.5rem;
+	border-radius: 0.5rem;
+	border-bottom: 0.25rem solid var(--darkNavyHover);
+	margin: 0 auto;
+	transform: translateX(-40%);
 }
 
 .game_grid {
-	width: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-flow: column;
+	width: 100%;
+	gap: 2rem;
 }
 
 .game_grid ul {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-template-rows: repeat(3, 1fr);
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
 	gap: 1rem;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
 	padding: 0;
-	margin: 1rem auto;
+	width: 100%;
 }
 
 .game_grid button {
-	width: 100%;
-	background-color: var(--semiDarkNavy);
-	border-bottom-color: var(--darkNavyHover);
-	height: 7rem;
-	width: 7rem;
+	padding: 0;
+	margin: 0;
 	display: flex;
-	align-items: center;
 	justify-content: center;
+	align-items: center;
+	border-radius: 0;
+	width: 100%;
+	aspect-ratio: 1;
+	border-radius: 1rem;
 	text-align: center;
+	background-color: var(--semiDarkNavy);
+	border-bottom: 0.5rem solid var(--darkNavyHover);
+}
+
+.game_grid button svg {
+	transform: scale(0.75);
+}
+
+.game_grid .svg {
+	transform: scale(0.75);
 }
 
 .score {
@@ -67,19 +98,26 @@ header h1 svg {
 	justify-content: space-evenly;
 	gap: 1rem;
 	width: 100%;
-	margin: 1rem auto;
 }
 
 .score > div {
-	padding: 1rem;
-	width: fit-content;
+	background-color: var(--lightBlue);
 	display: flex;
 	flex-flow: column;
 	align-items: center;
 	justify-content: center;
-	background-color: var(--lightBlue);
-	border-radius: 0.5rem;
-	width: 5rem;
-	max-height: 2rem;
-	text-align: center;
+	min-width: fit-content;
+	width: 100%;
+	padding: 0.25rem 1rem;
+	border-radius: 1rem;
+	color: var(--darkNavy);
+	font-weight: bold;
+}
+
+.score div:nth-child(2) {
+	background-color: var(--silver);
+}
+
+.score div:last-child {
+	background-color: var(--lightYellow);
 }
