@@ -43,8 +43,12 @@
 				<p>REMEMBER: X GOES FIRST</p>
 			</div>
 			<div class="game_button">
-				<button type="submit">NEW GAME (VS CPU)</button>
-				<button type="submit" class="blue">NEW GAME (VS PLAYER)</button>
+				<button type="submit" id="cpu">
+					<a href="./game.html"> NEW GAME (VS CPU) </a>
+				</button>
+				<button type="submit" class="blue" id="player">
+					<a href="./game.html"> NEW GAME (VS PLAYER) </a>
+				</button>
 			</div>
 		</main>
 		<!-- 
@@ -80,6 +84,7 @@
   Yes, restart -->
 
 		<!-- Game board end  -->
-		<script src="./script/app.js"></script>
+		<script type="module" src="./script/app.js"></script>
+		<script type="module" src="./script/variables.js"></script>
 	</body>
 </html>

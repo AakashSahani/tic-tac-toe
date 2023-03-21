@@ -44,66 +44,17 @@
 			</button>
 		</header>
 		<main>
-			<div class="game_grid">
+			<div class="game_grid" id="gameGrid">
 				<ul>
-					<li>
-						<button>
-							<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-								<path
-									d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
-									fill="#F2B137"
-								/>
-							</svg>
-						</button>
-					</li>
-					<li>
-						<button></button>
-					</li>
-					<li>
-						<button>
-							<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-								<path
-									d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
-									fill="#F2B137"
-								/>
-							</svg>
-						</button>
-					</li>
-					<li>
-						<button></button>
-					</li>
-					<li><button></button></li>
-					<li>
-						<button>
-							<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-								<path
-									d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
-									fill="#F2B137"
-								/>
-							</svg>
-						</button>
-					</li>
-					<li><button></button></li>
-					<li>
-						<button>
-							<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-								<path
-									d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
-									fill="#F2B137"
-								/>
-							</svg>
-						</button>
-					</li>
-					<li>
-						<button>
-							<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-								<path
-									d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
-									fill="#F2B137"
-								/>
-							</svg>
-						</button>
-					</li>
+					<li><button role="button" id="gridElOne"></button></li>
+					<li><button role="button" id="gridElTwo"></button></li>
+					<li><button role="button" id="gridElThree"></button></li>
+					<li><button role="button" id="gridElFour"></button></li>
+					<li><button role="button" id="gridElFive"></button></li>
+					<li><button role="button" id="gridElSix"></button></li>
+					<li><button role="button" id="gridElSeven"></button></li>
+					<li><button role="button" id="gridElEight"></button></li>
+					<li><button role="button" id="gridElNine"></button></li>
 				</ul>
 				<div class="score">
 					<div class="user_score">
@@ -121,5 +72,8 @@
 				</div>
 			</div>
 		</main>
+		<!-- <script src="./script/app.js"></script> -->
+		<script type="module" src="./script/game.js"></script>
+		<script type="module" src="./script/variables.js"></script>
 	</body>
 </html>

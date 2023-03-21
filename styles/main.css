@@ -104,6 +104,11 @@ h1 svg {
 	transform: scale(50%);
 }
 
+a {
+	text-decoration: none;
+	color: var(--darkNavy);
+}
+
 main {
 	display: flex;
 	flex-flow: column;
@@ -183,6 +188,7 @@ ul {
 }
 
 .selection label {
+	content: 'X';
 	padding: 2.5rem 0;
 	background-color: var(--darkNavy);
 	border-radius: 0.75rem;
