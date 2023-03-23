@@ -1,0 +1,159 @@
+@import 'config';
+@import 'button';
+@import 'game';
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&display=swap');
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+}
+body {
+	height: 100%;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+}
+#root,
+#__next {
+	isolation: isolate;
+}
+
+body {
+	@include flex-center;
+	font-family: 'Outfit', sans-serif;
+	flex-flow: column;
+	height: 100%;
+	min-height: 100vh;
+	background-color: $darkNavy;
+	color: $silver;
+}
+
+header {
+	@include flex-center;
+	flex-flow: row;
+}
+
+a {
+	text-decoration: none;
+	color: $darkNavy;
+}
+
+main {
+	@include flex-center;
+	flex-flow: column;
+	height: 100%;
+	width: 100%;
+	min-width: 350px;
+	padding: 1rem;
+	gap: 2rem;
+}
+
+ul {
+	list-style: none;
+}
+
+/* Player Selection */
+.container {
+	@include flex-center;
+	background-color: $semiDarkNavy;
+	flex-flow: column;
+	border-radius: 1rem;
+	border-bottom: 0.5rem solid $darkNavyHover;
+	padding: 1.5rem;
+	width: 100%;
+	gap: 1rem;
+
+	& p {
+		font-weight: 700;
+		&:last-child {
+			color: $silver;
+			font-weight: normal;
+			font-size: 1rem;
+			opacity: 0.75;
+		}
+	}
+	& form {
+		position: relative;
+		width: 100%;
+		display: flex;
+	}
+}
+
+.selection input[type='checkbox'] {
+	display: none;
+}
+
+.selection label {
+	content: 'X';
+	padding: 2.5rem 0;
+	background-color: $darkNavy;
+	border-radius: 0.75rem;
+	width: 100%;
+	flex: 1;
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: all ease-in-out 0.3s;
+}
+
+.selection label::after {
+	@include flex-center;
+	content: 'O';
+	right: 2.5%;
+	top: 0.5rem;
+	height: 80%;
+	width: 50%;
+	cursor: pointer;
+	font-weight: 700;
+	font-size: 3rem;
+	position: absolute;
+	text-align: center;
+	color: $darkNavy;
+	border-radius: 0.75rem;
+	background-color: $silver;
+	transition: all ease-in-out 0.3s;
+}
+
+.selection input[type='checkbox']:checked ~ label {
+	background-color: $silver;
+}
+
+.selection input[type='checkbox']:checked ~ label::after {
+	background-color: $darkNavy;
+	color: $silver;
+	content: 'X';
+	transform: translateX(-90%);
+}
+
+@media (min-width: 601px) {
+	main {
+		width: 30vw;
+	}
+}

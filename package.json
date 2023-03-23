@@ -1,0 +1,25 @@
+{
+	"name": "tic-tac-toe",
+	"version": "1.0.0",
+	"description": "![Design preview for the Tic Tac Toe coding challenge](./preview.jpg)",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build:sass": "node-sass -r --output-style compressed scss/style.scss -o dist",
+		"watch:sass": "npm run build:sass && npm run build:sass -w"
+	},
+	"devDependencies": {
+		"node-sass": "^3.4.2"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/AakashSahani/tic-tac-toe.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/AakashSahani/tic-tac-toe/issues"
+	},
+	"homepage": "https://github.com/AakashSahani/tic-tac-toe#readme"
+}

@@ -1,0 +1,143 @@
+body {
+	justify-content: flex-start;
+}
+
+main {
+	max-width: 350px;
+	z-index: 10;
+}
+
+header {
+	display: flex;
+	flex-flow: row;
+	justify-content: space-between;
+	padding: 1rem;
+	align-items: center;
+	width: 100%;
+}
+
+header h1 {
+	@include flex-center;
+	width: fit-content;
+	padding: 0;
+	margin: 0;
+}
+
+header h1 svg {
+	transform: scale(0.5);
+}
+
+.reset {
+	background-color: $silver;
+	color: $darkNavy;
+	border-bottom: 0.5rem solid $silverHover;
+	width: fit-content;
+	height: fit-content;
+	padding: 1rem;
+	border-bottom: 0.25rem solid $silverHover;
+}
+
+.turn {
+	background-color: $semiDarkNavy;
+	color: $silver;
+	width: fit-content;
+	height: fit-content;
+	padding: 0.5rem 1.5rem;
+	border-radius: 0.5rem;
+	border-bottom: 0.25rem solid $darkNavyHover;
+	margin: 0 auto;
+	transform: translateX(-40%);
+}
+
+.game_grid {
+	@include flex-center;
+	flex-flow: column;
+	width: 100%;
+	gap: 2rem;
+}
+
+.game_grid ul {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	gap: 1rem;
+	padding: 0;
+	width: 100%;
+}
+
+.game_grid button {
+	@include flex-center;
+	padding: 0;
+	margin: 0;
+	border-radius: 0;
+	width: 100%;
+	aspect-ratio: 1;
+	border-radius: 1rem;
+	text-align: center;
+	background-color: $semiDarkNavy;
+	border-bottom: 0.5rem solid $darkNavyHover;
+}
+
+.game_grid button svg {
+	transform: scale(0.75);
+}
+
+.game_grid .svg {
+	transform: scale(0.75);
+}
+
+.score {
+	@include flex-center;
+	flex-flow: row;
+	justify-content: space-evenly;
+	gap: 1rem;
+	width: 100%;
+	> div {
+		@include flex-center;
+		background-color: $lightBlue;
+		flex-flow: column;
+		min-width: fit-content;
+		width: 100%;
+		padding: 0.25rem 1rem;
+		border-radius: 1rem;
+		color: $darkNavy;
+		font-weight: bold;
+		&:nth-child(2) {
+			background-color: $silver;
+		}
+		&:last-child {
+			background-color: $lightYellow;
+		}
+	}
+}
+
+.result_modal {
+	@include flex-center;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(26, 42, 51, 0.6);
+	z-index: 99;
+	> div {
+		@include flex-center;
+		background-color: $semiDarkNavy;
+		flex-flow: column;
+		left: 0;
+		width: 100%;
+		height: 40%;
+		gap: 1rem;
+		& button {
+			padding: 0.5rem;
+			border-bottom-width: 0.25rem;
+		}
+		> div {
+			display: flex;
+			flex-flow: row;
+			gap: 1rem;
+		}
+	}
+}
+
+.hidden {
+	display: none;
+}

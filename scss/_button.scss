@@ -1,0 +1,29 @@
+@mixin button_design($bg, $color) {
+	@include flex-center;
+	background-color: $bg;
+	border-bottom: 0.5rem solid $color;
+}
+
+button {
+	@include button_design($lightYellow, $lightYellowHover);
+	border-radius: 1rem;
+	color: black;
+	padding: 1rem;
+	border: none;
+	font-weight: bold;
+	width: 100%;
+	&:hover {
+		cursor: pointer;
+		border-block-color: $lightYellowHover;
+		background-color: $lightYellow;
+	}
+	& .blue {
+		@include button_design($lightBlue, $lightBlueHover);
+		&:hover {
+			@include button_design($lightBlueHover, $lightBlue);
+		}
+	}
+	& .game_button {
+		flex-flow: column;
+	}
+}

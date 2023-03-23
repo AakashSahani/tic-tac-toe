@@ -1,0 +1,16 @@
+/* Colors */
+$darkNavy: rgb(26, 42, 51);
+$darkNavyHover: #10212a;
+$semiDarkNavy: rgb(31, 54, 65);
+$silver: rgb(168, 191, 201);
+$silverHover: rgb(219, 232, 237);
+$lightBlue: rgb(49, 195, 189);
+$lightBlueHover: rgb(101, 233, 228);
+$lightYellow: rgb(242, 177, 55);
+$lightYellowHover: rgb(255, 200, 96);
+
+@mixin flex-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

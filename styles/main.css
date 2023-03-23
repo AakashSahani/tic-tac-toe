@@ -1,57 +1,231 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&display=swap');
+/* Colors */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&display=swap");
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(242, 177, 55);
+  border-bottom: 0.5rem solid rgb(255, 200, 96);
+  border-radius: 1rem;
+  color: black;
+  padding: 1rem;
+  border: none;
+  font-weight: bold;
+  width: 100%;
+}
+button:hover {
+  cursor: pointer;
+  border-block-color: rgb(255, 200, 96);
+  background-color: rgb(242, 177, 55);
+}
+button .blue {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(49, 195, 189);
+  border-bottom: 0.5rem solid rgb(101, 233, 228);
+}
+button .blue:hover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(101, 233, 228);
+  border-bottom: 0.5rem solid rgb(49, 195, 189);
+}
+button .game_button {
+  flex-flow: column;
+}
 
-/*
-  1. Use a more-intuitive box-sizing model.
-*/
+body {
+  justify-content: flex-start;
+}
+
+main {
+  max-width: 350px;
+  z-index: 10;
+}
+
+header {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  padding: 1rem;
+  align-items: center;
+  width: 100%;
+}
+
+header h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  padding: 0;
+  margin: 0;
+}
+
+header h1 svg {
+  transform: scale(0.5);
+}
+
+.reset {
+  background-color: rgb(168, 191, 201);
+  color: rgb(26, 42, 51);
+  border-bottom: 0.5rem solid rgb(219, 232, 237);
+  width: fit-content;
+  height: fit-content;
+  padding: 1rem;
+  border-bottom: 0.25rem solid rgb(219, 232, 237);
+}
+
+.turn {
+  background-color: rgb(31, 54, 65);
+  color: rgb(168, 191, 201);
+  width: fit-content;
+  height: fit-content;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  border-bottom: 0.25rem solid #10212a;
+  margin: 0 auto;
+  transform: translateX(-40%);
+}
+
+.game_grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  width: 100%;
+  gap: 2rem;
+}
+
+.game_grid ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 1rem;
+  padding: 0;
+  width: 100%;
+}
+
+.game_grid button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 1rem;
+  text-align: center;
+  background-color: rgb(31, 54, 65);
+  border-bottom: 0.5rem solid #10212a;
+}
+
+.game_grid button svg {
+  transform: scale(0.75);
+}
+
+.game_grid .svg {
+  transform: scale(0.75);
+}
+
+.score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row;
+  justify-content: space-evenly;
+  gap: 1rem;
+  width: 100%;
+}
+.score > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(49, 195, 189);
+  flex-flow: column;
+  min-width: fit-content;
+  width: 100%;
+  padding: 0.25rem 1rem;
+  border-radius: 1rem;
+  color: rgb(26, 42, 51);
+  font-weight: bold;
+}
+.score > div:nth-child(2) {
+  background-color: rgb(168, 191, 201);
+}
+.score > div:last-child {
+  background-color: rgb(242, 177, 55);
+}
+
+.result_modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(26, 42, 51, 0.6);
+  z-index: 99;
+}
+.result_modal > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(31, 54, 65);
+  flex-flow: column;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  gap: 1rem;
+}
+.result_modal > div button {
+  padding: 0.5rem;
+  border-bottom-width: 0.25rem;
+}
+.result_modal > div > div {
+  display: flex;
+  flex-flow: row;
+  gap: 1rem;
+}
+
+.hidden {
+  display: none;
+}
+
 *,
 *::before,
 *::after {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
-/*
-  2. Remove default margin
-*/
+
 * {
-	margin: 0;
+  margin: 0;
 }
-/*
-  3. Allow percentage-based heights in the application
-*/
+
 body {
-	height: 100%;
+  height: 100%;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
-/*
-  Typographic tweaks!
-  4. Add accessible line-height
-  5. Improve text rendering
-*/
-body {
-	line-height: 1.5;
-	-webkit-font-smoothing: antialiased;
-}
-/*
-  6. Improve media defaults
-*/
+
 img,
 picture,
 video,
 canvas,
 svg {
-	display: block;
-	max-width: 100%;
+  display: block;
+  max-width: 100%;
 }
-/*
-  7. Remove built-in form typography styles
-*/
+
 input,
 button,
 textarea,
 select {
-	font: inherit;
+  font: inherit;
 }
-/*
-  8. Avoid text overflows
-*/
+
 p,
 h1,
 h2,
@@ -59,193 +233,134 @@ h3,
 h4,
 h5,
 h6 {
-	overflow-wrap: break-word;
-}
-/*
-  9. Create a root stacking context
-*/
-#root,
-#__next {
-	isolation: isolate;
+  overflow-wrap: break-word;
 }
 
-:root {
-	/* Colors */
-	--darkNavy: rgb(26, 42, 51);
-	--darkNavyHover: #10212a;
-	--semiDarkNavy: rgb(31, 54, 65);
-	--silver: rgb(168, 191, 201);
-	--silverHover: rgb(219, 232, 237);
-	--lightBlue: rgb(49, 195, 189);
-	--lightBlueHover: rgb(101, 233, 228);
-	--lightYellow: rgb(242, 177, 55);
-	--lightYellowHover: rgb(255, 200, 96);
+#root,
+#__next {
+  isolation: isolate;
 }
 
 body {
-	font-family: 'Outfit', sans-serif;
-	display: flex;
-	flex-flow: column;
-	justify-content: center;
-	align-items: center;
-	height: 100%;
-	min-height: 100vh;
-	background-color: var(--darkNavy);
-	color: var(--silver);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Outfit", sans-serif;
+  flex-flow: column;
+  height: 100%;
+  min-height: 100vh;
+  background-color: rgb(26, 42, 51);
+  color: rgb(168, 191, 201);
 }
 
-header h1 {
-	display: flex;
-	flex-flow: row;
-	justify-content: center;
-}
-
-h1 svg {
-	transform: scale(50%);
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row;
 }
 
 a {
-	text-decoration: none;
-	color: var(--darkNavy);
+  text-decoration: none;
+  color: rgb(26, 42, 51);
 }
 
 main {
-	display: flex;
-	flex-flow: column;
-	align-items: center;
-	justify-content: center;
-	height: 100%;
-	width: 100%;
-	min-width: 350px;
-	padding: 1rem;
-	gap: 2rem;
-}
-
-/* Button Styling */
-button {
-	border-radius: 1rem;
-	background-color: var(--lightYellowHover);
-	padding: 1rem;
-	border: none;
-	border-bottom: 0.5rem solid var(--lightYellow);
-	font-weight: bold;
-	width: 100%;
-}
-
-button:hover {
-	cursor: pointer;
-	background-color: var(--lightYellow);
-	border-bottom-color: var(--lightYellowHover);
-}
-
-.blue {
-	background-color: var(--lightBlueHover);
-	border-bottom: 0.5rem solid var(--lightBlue);
-}
-
-.blue:hover {
-	background-color: var(--lightBlue);
-	border-bottom-color: var(--lightBlueHover);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  height: 100%;
+  width: 100%;
+  min-width: 350px;
+  padding: 1rem;
+  gap: 2rem;
 }
 
 ul {
-	list-style: none;
+  list-style: none;
 }
 
 /* Player Selection */
 .container {
-	background-color: var(--semiDarkNavy);
-	display: flex;
-	flex-flow: column;
-	justify-content: center;
-	align-items: center;
-	border-radius: 1rem;
-	border-bottom: 0.5rem solid var(--darkNavyHover);
-	padding: 1.5rem;
-	width: 100%;
-	gap: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(31, 54, 65);
+  flex-flow: column;
+  border-radius: 1rem;
+  border-bottom: 0.5rem solid #10212a;
+  padding: 1.5rem;
+  width: 100%;
+  gap: 1rem;
 }
-
 .container p {
-	font-weight: 700;
+  font-weight: 700;
 }
-
 .container p:last-child {
-	color: var(--silver);
-	font-weight: normal;
-	font-size: 1rem;
-	opacity: 0.75;
+  color: rgb(168, 191, 201);
+  font-weight: normal;
+  font-size: 1rem;
+  opacity: 0.75;
 }
-
 .container form {
-	position: relative;
-	width: 100%;
-	display: flex;
+  position: relative;
+  width: 100%;
+  display: flex;
 }
 
-.selection input[type='checkbox'] {
-	display: none;
+.selection input[type=checkbox] {
+  display: none;
 }
 
 .selection label {
-	content: 'X';
-	padding: 2.5rem 0;
-	background-color: var(--darkNavy);
-	border-radius: 0.75rem;
-	width: 100%;
-	flex: 1;
-	cursor: pointer;
-	display: inline-block;
-	position: relative;
-	transition: all ease-in-out 0.3s;
+  content: "X";
+  padding: 2.5rem 0;
+  background-color: rgb(26, 42, 51);
+  border-radius: 0.75rem;
+  width: 100%;
+  flex: 1;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: all ease-in-out 0.3s;
 }
 
 .selection label::after {
-	content: 'O';
-	right: 2.5%;
-	top: 0.5rem;
-	height: 80%;
-	width: 50%;
-	display: flex;
-	cursor: pointer;
-	font-weight: 700;
-	font-size: 3rem;
-	position: absolute;
-	text-align: center;
-	align-items: center;
-	color: var(--darkNavy);
-	border-radius: 0.75rem;
-	justify-content: center;
-	background-color: var(--silver);
-	transition: all ease-in-out 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  content: "O";
+  right: 2.5%;
+  top: 0.5rem;
+  height: 80%;
+  width: 50%;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 3rem;
+  position: absolute;
+  text-align: center;
+  color: rgb(26, 42, 51);
+  border-radius: 0.75rem;
+  background-color: rgb(168, 191, 201);
+  transition: all ease-in-out 0.3s;
 }
 
-.selection input[type='checkbox']:checked ~ label {
-	background-color: var(--silver);
+.selection input[type=checkbox]:checked ~ label {
+  background-color: rgb(168, 191, 201);
 }
 
-.selection input[type='checkbox']:checked ~ label::after {
-	background-color: var(--darkNavy);
-	color: var(--silver);
-	content: 'X';
-	transform: translateX(-90%);
-}
-
-.game_button {
-	display: flex;
-	flex-flow: column;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	margin: auto;
-	gap: 1rem;
+.selection input[type=checkbox]:checked ~ label::after {
+  background-color: rgb(26, 42, 51);
+  color: rgb(168, 191, 201);
+  content: "X";
+  transform: translateX(-90%);
 }
 
 @media (min-width: 601px) {
-	/* body {
-		padding: 0;
-	} */
-	main {
-		width: 30vw;
-	}
+  main {
+    width: 30vw;
+  }
 }
+
+/*# sourceMappingURL=main.css.map */
