@@ -27,3 +27,40 @@ button {
 		flex-flow: column;
 	}
 }
+.reset {
+	background-color: $silver;
+	color: $darkNavy;
+	border-bottom: 0.5rem solid $silverHover;
+	width: fit-content;
+	height: fit-content;
+	padding: 1rem;
+	border-bottom: 0.25rem solid $silverHover;
+}
+
+.turn {
+	background-color: $semiDarkNavy;
+	color: $silver;
+	width: fit-content;
+	height: fit-content;
+	padding: 0.5rem 1.5rem;
+	border-radius: 0.5rem;
+	border-bottom: 0.25rem solid $darkNavyHover;
+	margin: 0 auto;
+	transform: translateX(-40%);
+}
+.game_grid button {
+	@include flex-center;
+	padding: 0;
+	margin: 0;
+	border-radius: 0;
+	width: 100%;
+	aspect-ratio: 1;
+	border-radius: 1rem;
+	text-align: center;
+	background-color: $semiDarkNavy;
+	border-bottom: 0.5rem solid $darkNavyHover;
+}
+
+.game_grid button svg {
+	transform: scale(0.75);
+}

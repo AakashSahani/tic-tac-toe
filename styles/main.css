@@ -36,6 +36,47 @@ button .game_button {
   flex-flow: column;
 }
 
+.reset {
+  background-color: rgb(168, 191, 201);
+  color: rgb(26, 42, 51);
+  border-bottom: 0.5rem solid rgb(219, 232, 237);
+  width: fit-content;
+  height: fit-content;
+  padding: 1rem;
+  border-bottom: 0.25rem solid rgb(219, 232, 237);
+}
+
+.turn {
+  background-color: rgb(31, 54, 65);
+  color: rgb(168, 191, 201);
+  width: fit-content;
+  height: fit-content;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  border-bottom: 0.25rem solid #10212a;
+  margin: 0 auto;
+  transform: translateX(-40%);
+}
+
+.game_grid button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 1rem;
+  text-align: center;
+  background-color: rgb(31, 54, 65);
+  border-bottom: 0.5rem solid #10212a;
+}
+
+.game_grid button svg {
+  transform: scale(0.75);
+}
+
 body {
   justify-content: flex-start;
 }
@@ -67,28 +108,6 @@ header h1 svg {
   transform: scale(0.5);
 }
 
-.reset {
-  background-color: rgb(168, 191, 201);
-  color: rgb(26, 42, 51);
-  border-bottom: 0.5rem solid rgb(219, 232, 237);
-  width: fit-content;
-  height: fit-content;
-  padding: 1rem;
-  border-bottom: 0.25rem solid rgb(219, 232, 237);
-}
-
-.turn {
-  background-color: rgb(31, 54, 65);
-  color: rgb(168, 191, 201);
-  width: fit-content;
-  height: fit-content;
-  padding: 0.5rem 1.5rem;
-  border-radius: 0.5rem;
-  border-bottom: 0.25rem solid #10212a;
-  margin: 0 auto;
-  transform: translateX(-40%);
-}
-
 .game_grid {
   display: flex;
   justify-content: center;
@@ -105,25 +124,6 @@ header h1 svg {
   gap: 1rem;
   padding: 0;
   width: 100%;
-}
-
-.game_grid button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  margin: 0;
-  border-radius: 0;
-  width: 100%;
-  aspect-ratio: 1;
-  border-radius: 1rem;
-  text-align: center;
-  background-color: rgb(31, 54, 65);
-  border-bottom: 0.5rem solid #10212a;
-}
-
-.game_grid button svg {
-  transform: scale(0.75);
 }
 
 .game_grid .svg {
