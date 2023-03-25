@@ -60,21 +60,21 @@
 				<div class="score">
 					<div class="user_score">
 						<span>X (YOU)</span>
-						<span>14</span>
+						<span id="wins">0</span>
 					</div>
 					<div class="user_score">
 						<span>TIES</span>
-						<span>14</span>
+						<span id="ties">0</span>
 					</div>
 					<div class="user_score">
 						<span>O (CPU)</span>
-						<span>14</span>
+						<span id="loss">0</span>
 					</div>
 				</div>
 			</div>
 			<div class="result_modal hidden" id="result">
 				<div>
-					<p>Player 1 wins</p>
+					<p id="result_card">Player _ wins</p>
 					<p>Takes the round</p>
 					<div>
 						<button class="reset">QUIT</button>
@@ -83,7 +83,6 @@
 				</div>
 			</div>
 		</main>
-		<script type="module" src="./script/game.js"></script>
-		<script type="module" src="./script/variables.js"></script>
+		<script src="./script/game.js"></script>
 	</body>
 </html>
