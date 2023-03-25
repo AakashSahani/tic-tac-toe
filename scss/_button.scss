@@ -23,31 +23,37 @@ button {
 			@include button_design($lightBlueHover, $lightBlue);
 		}
 	}
-	& .game_button {
-		flex-flow: column;
-	}
 }
+
 .reset {
 	background-color: $silver;
 	color: $darkNavy;
-	border-bottom: 0.5rem solid $silverHover;
+	border-bottom: 0.25rem solid $silverHover;
 	width: fit-content;
 	height: fit-content;
 	padding: 1rem;
-	border-bottom: 0.25rem solid $silverHover;
+	&:hover {
+		background-color: $silverHover;
+		border-bottom-color: $silver;
+	}
 }
 
 .turn {
 	background-color: $semiDarkNavy;
 	color: $silver;
+	border-bottom: 0.25rem solid $darkNavyHover;
 	width: fit-content;
 	height: fit-content;
 	padding: 0.5rem 1.5rem;
 	border-radius: 0.5rem;
-	border-bottom: 0.25rem solid $darkNavyHover;
 	margin: 0 auto;
 	transform: translateX(-40%);
+	&:hover {
+		background-color: $darkNavyHover;
+		border-bottom-color: $semiDarkNavy;
+	}
 }
+
 .game_grid button {
 	@include flex-center;
 	padding: 0;

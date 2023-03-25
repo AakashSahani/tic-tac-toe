@@ -5,9 +5,9 @@ const oTileSVG = `<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg"
 
 const resultModal = document.getElementById('result');
 
-const wins = document.getElementById('wins ');
-const ties = document.getElementById('ties ');
-const loss = document.getElementById('loss ');
+const wins = document.getElementById('wins');
+const ties = document.getElementById('ties');
+const loss = document.getElementById('loss');
 
 const result_card = document.getElementById('result_card');
 
@@ -20,34 +20,43 @@ let player1 = localStorage.getItem('player1');
 
 let player2 = localStorage.player2;
 let cpu = localStorage.cpu;
+let winNum = parseInt(localStorage.wins);
+let tiesNum = parseInt(localStorage.ties);
+let lossNum = parseInt(localStorage.loss);
 
 const buttonCollections = document.getElementById('gameCol').children;
 
-let currentBoardStatus = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-let openPositions = [];
+let currentBoardStatus = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+let openPositions = currentBoardStatus;
 
 gameGrid.addEventListener('click', (e) => {
-	if (e.target.nodeName === 'BUTTON') {
-		handleUserClick(e, player1);
-		setTimeout(() => {
+	if (openPositions.length != 0) {
+		if (e.target.nodeName === 'BUTTON') {
+			handleUserClick(e, player1);
 			cpu != '' && handleCpuClick();
-		}, 2000);
-		console.log('From click event: ', currentBoardStatus);
+			console.log('From click event: ', currentBoardStatus);
+		}
 	}
+	openPositions.length === 0 && console.log("It's a tie");
+	console.log('Open positions', openPositions);
 });
 
 function handleUserClick(e, player) {
 	if (e.target.disabled != true) {
 		e.target.innerHTML = player === 'X' ? xTileSVG : oTileSVG;
 
-		currentBoardStatus[parseInt(e.target.value) - 1] = player;
+		currentBoardStatus[parseInt(e.target.value)] = player;
 
 		if (checkWinner(currentBoardStatus, player)) {
 			result_card.innerHTML = `Player 1 wins`;
 			resultModal.classList.remove('hidden');
+			winNum += 1;
+			wins.innerHTML = winNum;
+			localStorage.setItem('wins', winNum.toString);
 		}
 		e.target.disabled = true;
 	}
+	openPositions = currentBoardStatus.filter((tile) => typeof tile === 'number');
 }
 
 function handleCpuClick() {
@@ -57,18 +66,20 @@ function handleCpuClick() {
 	if (buttonCollections[randomTile].firstElementChild.disabled != true) {
 		buttonCollections[randomTile].firstElementChild.innerHTML =
 			cpu === 'X' ? xTileSVG : oTileSVG;
-		currentBoardStatus[
-			buttonCollections[randomTile].firstElementChild.value - 1
-		] = cpu;
+		currentBoardStatus[buttonCollections[randomTile].firstElementChild.value] =
+			cpu;
 
 		if (checkWinner(currentBoardStatus, cpu)) {
 			result_card.innerHTML = `CPU wins`;
 			resultModal.classList.remove('hidden');
+			lossNum += 1;
+			wins.innerHTML = lossNum;
+			localStorage.setItem('loss', lossNum.toString);
 		}
 
 		buttonCollections[randomTile].firstElementChild.disabled = true;
 	}
-	console.log('From cpu func ', currentBoardStatus);
+	openPositions = currentBoardStatus.filter((tile) => typeof tile === 'number');
 }
 
 function checkWinner(currentBoardStatus, turn) {
