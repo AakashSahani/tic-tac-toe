@@ -24,19 +24,19 @@ if (playerChoice != null && playerChoice != undefined) {
 		console.log(player1);
 	});
 }
-// if (gameAgainstCPU != null && gameAgainstCPU != undefined) {
-// 	gameAgainstCPU.addEventListener('click', () => {
-// 		gameAgainstPlayer.disabled = true;
-// 		player1 === 'X'
-// 			? localStorage.setItem('cpu', 'O')
-// 			: localStorage.setItem('cpu', 'X');
-// 	});
-// }
-// if (gameAgainstPlayer != null && gameAgainstPlayer != undefined) {
-// 	gameAgainstPlayer.addEventListener('click', () => {
-// 		gameAgainstCPU.disabled = true;
-// 		player1 === 'X'
-// 			? localStorage.setItem('player2', 'O')
-// 			: localStorage.setItem('player2', 'X');
-// 	});
-// }
+if (gameAgainstCPU != null && gameAgainstCPU != undefined) {
+	gameAgainstCPU.addEventListener('click', () => {
+		gameAgainstPlayer.disabled = true;
+		player1 === 'X'
+			? localStorage.setItem('cpu', 'O')
+			: localStorage.setItem('cpu', 'X');
+	});
+}
+if (gameAgainstPlayer != null && gameAgainstPlayer != undefined) {
+	gameAgainstPlayer.addEventListener('click', () => {
+		gameAgainstCPU.disabled = true;
+		player1 === 'X'
+			? localStorage.setItem('player2', 'O')
+			: localStorage.setItem('player2', 'X');
+	});
+}

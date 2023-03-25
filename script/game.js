@@ -18,48 +18,57 @@ localStorage.getItem('variableName');
 
 let player1 = localStorage.getItem('player1');
 
-let player2 =
-	localStorage.getItem('player2') === ''
-		? player1 === 'X'
-			? 'O'
-			: 'X'
-		: localStorage.getItem('player2');
+let player2 = localStorage.player2;
+let cpu = localStorage.cpu;
 
-let cpu =
-	localStorage.getItem('cpu') === ''
-		? player1 === 'X'
-			? 'O'
-			: 'X'
-		: localStorage.getItem('cpu');
+const buttonCollections = document.getElementById('gameCol').children;
 
 let currentBoardStatus = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+let openPositions = [];
 
 gameGrid.addEventListener('click', (e) => {
-	console.log('Player 1 ', player1, 'Player 2 ', player2, 'Cpu ', cpu);
-	handleUserClick(e);
+	if (e.target.nodeName === 'BUTTON') {
+		handleUserClick(e, player1);
+		setTimeout(() => {
+			cpu != '' && handleCpuClick();
+		}, 2000);
+		console.log('From click event: ', currentBoardStatus);
+	}
 });
 
-function handleUserClick(e) {
-	if (e.target.nodeName === 'BUTTON') {
-		if (turn === 'X') {
-			e.target.innerHTML = xTileSVG;
-			currentBoardStatus[parseInt(e.target.value) - 1] = turn;
-			if (checkWinner(currentBoardStatus, turn)) {
-				result_card.innerHTML = `Player 1 wins`;
-				resultModal.classList.remove('hidden');
-			}
-			turn = 'O';
-		} else {
-			e.target.innerHTML = oTileSVG;
-			currentBoardStatus[parseInt(e.target.value) - 1] = turn;
-			if (checkWinner(currentBoardStatus, turn)) {
-				result_card.innerHTML = `Player 2 wins`;
-				resultModal.classList.remove('hidden');
-			}
-			turn = 'X';
+function handleUserClick(e, player) {
+	if (e.target.disabled != true) {
+		e.target.innerHTML = player === 'X' ? xTileSVG : oTileSVG;
+
+		currentBoardStatus[parseInt(e.target.value) - 1] = player;
+
+		if (checkWinner(currentBoardStatus, player)) {
+			result_card.innerHTML = `Player 1 wins`;
+			resultModal.classList.remove('hidden');
 		}
 		e.target.disabled = true;
 	}
+}
+
+function handleCpuClick() {
+	const randomTile =
+		openPositions[Math.floor(Math.random() * openPositions.length)];
+
+	if (buttonCollections[randomTile].firstElementChild.disabled != true) {
+		buttonCollections[randomTile].firstElementChild.innerHTML =
+			cpu === 'X' ? xTileSVG : oTileSVG;
+		currentBoardStatus[
+			buttonCollections[randomTile].firstElementChild.value - 1
+		] = cpu;
+
+		if (checkWinner(currentBoardStatus, cpu)) {
+			result_card.innerHTML = `CPU wins`;
+			resultModal.classList.remove('hidden');
+		}
+
+		buttonCollections[randomTile].firstElementChild.disabled = true;
+	}
+	console.log('From cpu func ', currentBoardStatus);
 }
 
 function checkWinner(currentBoardStatus, turn) {
