@@ -23,7 +23,7 @@ let tiesNum = parseInt(localStorage.ties);
 let lossNum = parseInt(localStorage.loss);
 
 // Get player choices
-let player1 = localStorage.getItem('firstPlayer') || 'X';
+let player1 = localStorage.getItem('firstPlayer');
 
 // Reset player2 if cpu is chosen
 localStorage.cpu != '' && localStorage.setItem('secondPlayer', '');
@@ -48,18 +48,22 @@ gameGrid.addEventListener('click', (e) => {
 	handleGame(e);
 });
 
+let turn = 0;
+
 function handleGame(e) {
-	let turn = 0;
 	if (openPositions.length != 0) {
 		if (e.target.nodeName === 'BUTTON') {
 			if (player2 != '' && cpu === '') {
 				turn === 0 ? handleUserClick(e, player1) : handleUserClick(e, player2);
+				if (turn === 0) {
+					turn = 1;
+				} else {
+					turn = 0;
+				}
 			} else {
 				handleUserClick(e, player1);
 			}
 			cpu != '' && handleCpuClick();
-
-			console.log('From click event: ', currentBoardStatus);
 		}
 	}
 	if (openPositions.length === 0) {
@@ -145,9 +149,3 @@ function checkWinner(currentBoardStatus, turn) {
 		return false;
 	}
 }
-
-// Button Logic
-
-// Reset Button
-// New Round Button
-// Quit Button
