@@ -14,13 +14,18 @@ const wins = document.getElementById('wins');
 const ties = document.getElementById('ties');
 const loss = document.getElementById('loss');
 
-localStorage.wins = '0';
-localStorage.ties = '0';
-localStorage.loss = '0';
+wins.innerHTML = localStorage.wins;
+ties.innerHTML = localStorage.ties;
+loss.innerHTML = localStorage.loss;
 
-let winNum = parseInt(localStorage.wins);
-let tiesNum = parseInt(localStorage.ties);
-let lossNum = parseInt(localStorage.loss);
+// Variables to store score
+// let winNum = parseInt(localStorage.wins);
+// let tiesNum = parseInt(localStorage.ties);
+// let lossNum = parseInt(localStorage.loss);
+
+let winNum = 0;
+let tiesNum = 0;
+let lossNum = 0;
 
 // Get player choices
 let player1 = localStorage.getItem('firstPlayer');
@@ -38,16 +43,21 @@ const buttonCollections = document.getElementById('gameCol').children;
 
 // Array to store current status of the grid
 let currentBoardStatus = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+
+// Open positions that cpu can choose from
 let openPositions = currentBoardStatus;
 
+// If player choose 'O' than cpu goes first
 if (player1 === 'O' && cpu === 'X') {
 	handleCpuClick();
 }
 
+// handle tile choices
 gameGrid.addEventListener('click', (e) => {
 	handleGame(e);
 });
 
+// Variable to track player turns
 let turn = 0;
 
 function handleGame(e) {
@@ -83,8 +93,8 @@ function handleUserClick(e, player) {
 			result_card.innerHTML = `Player 1 wins`;
 			resultModal.classList.remove('hidden');
 			winNum += 1;
+			localStorage.wins = winNum.toString();
 			wins.innerHTML = winNum;
-			localStorage.setItem('wins', winNum.toString());
 		}
 		e.target.disabled = true;
 	}
@@ -107,7 +117,7 @@ function handleCpuClick() {
 				result_card.innerHTML = `CPU wins`;
 				resultModal.classList.remove('hidden');
 				lossNum += 1;
-				wins.innerHTML = lossNum;
+				loss.innerHTML = lossNum;
 				localStorage.setItem('loss', lossNum.toString());
 			}
 

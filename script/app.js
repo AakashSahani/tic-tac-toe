@@ -7,6 +7,9 @@ const gameAgainstPlayer = document.getElementById('secondPlayer');
 localStorage.setItem('cpu', '');
 localStorage.setItem('secondPlayer', '');
 localStorage.setItem('firstPlayer', 'X');
+localStorage.setItem('wins', '0');
+localStorage.setItem('ties', '0');
+localStorage.setItem('loss', '0');
 let firstPlayer = 'X';
 
 playerChoice.addEventListener('input', (e) => {
