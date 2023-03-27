@@ -23,9 +23,9 @@ loss.innerHTML = localStorage.loss;
 // let tiesNum = parseInt(localStorage.ties);
 // let lossNum = parseInt(localStorage.loss);
 
-let winNum = 0;
-let tiesNum = 0;
-let lossNum = 0;
+let winNum = parseInt(localStorage.wins);
+let tiesNum = parseInt(localStorage.ties);
+let lossNum = parseInt(localStorage.loss);
 
 // Get player choices
 let player1 = localStorage.getItem('firstPlayer');
@@ -54,6 +54,7 @@ if (player1 === 'O' && cpu === 'X') {
 
 // handle tile choices
 gameGrid.addEventListener('click', (e) => {
+	gameGrid.style.pointerEvents = 'none';
 	handleGame(e);
 });
 
@@ -73,13 +74,20 @@ function handleGame(e) {
 			} else {
 				handleUserClick(e, player1);
 			}
-			cpu != '' && handleCpuClick();
+			setTimeout(() => {
+				cpu != '' && handleCpuClick();
+				gameGrid.style.pointerEvents = 'all';
+			}, 1000);
 		}
-	}
-	if (openPositions.length === 0) {
-		tiesNum += 1;
-		localStorage.ties = tiesNum.toString();
-		ties.innerHTML = tiesNum;
+		if (openPositions.length === 0) {
+			setTimeout(() => {
+				resultModal.classList.remove('hidden');
+			}, 1000);
+			tiesNum += 1;
+			localStorage.ties = tiesNum.toString();
+			ties.innerHTML = tiesNum;
+			result_card.innerHTML = `It's a Tie`;
+		}
 	}
 }
 
@@ -91,7 +99,9 @@ function handleUserClick(e, player) {
 
 		if (checkWinner(currentBoardStatus, player)) {
 			result_card.innerHTML = `Player 1 wins`;
-			resultModal.classList.remove('hidden');
+			setTimeout(() => {
+				resultModal.classList.remove('hidden');
+			}, 1000);
 			winNum += 1;
 			localStorage.wins = winNum.toString();
 			wins.innerHTML = winNum;
@@ -115,10 +125,12 @@ function handleCpuClick() {
 
 			if (checkWinner(currentBoardStatus, cpu)) {
 				result_card.innerHTML = `CPU wins`;
-				resultModal.classList.remove('hidden');
+				setTimeout(() => {
+					resultModal.classList.remove('hidden');
+				}, 1000);
 				lossNum += 1;
-				loss.innerHTML = lossNum;
 				localStorage.setItem('loss', lossNum.toString());
+				loss.innerHTML = lossNum;
 			}
 
 			buttonCollections[randomTile].firstElementChild.disabled = true;

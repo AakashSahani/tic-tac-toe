@@ -1,36 +1,37 @@
 /* Colors */
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&display=swap");
 button {
+  border: none;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgb(242, 177, 55);
-  border-bottom: 0.5rem solid rgb(255, 200, 96);
+  border-bottom: 0.4rem solid rgb(255, 200, 96);
   border-radius: 1rem;
   color: black;
   padding: 1rem;
-  border: none;
   font-weight: bold;
   width: 100%;
 }
 button:hover {
   cursor: pointer;
-  border-block-color: rgb(255, 200, 96);
-  background-color: rgb(242, 177, 55);
+  border-bottom-color: rgb(242, 177, 55);
+  background-color: rgb(255, 200, 96);
 }
-button .blue {
+
+.blue {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgb(49, 195, 189);
-  border-bottom: 0.5rem solid rgb(101, 233, 228);
+  border-bottom: 0.4rem solid rgb(101, 233, 228);
 }
-button .blue:hover {
+.blue:hover {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgb(101, 233, 228);
-  border-bottom: 0.5rem solid rgb(49, 195, 189);
+  border-bottom: 0.4rem solid rgb(49, 195, 189);
 }
 
 .reset {

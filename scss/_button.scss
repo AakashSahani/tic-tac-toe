@@ -1,30 +1,30 @@
 @mixin button_design($bg, $color) {
 	@include flex-center;
 	background-color: $bg;
-	border-bottom: 0.5rem solid $color;
+	border-bottom: 0.4rem solid $color;
 }
 
 button {
+	border: none;
 	@include button_design($lightYellow, $lightYellowHover);
 	border-radius: 1rem;
 	color: black;
 	padding: 1rem;
-	border: none;
 	font-weight: bold;
 	width: 100%;
 	&:hover {
 		cursor: pointer;
-		border-block-color: $lightYellowHover;
-		background-color: $lightYellow;
-	}
-	& .blue {
-		@include button_design($lightBlue, $lightBlueHover);
-		&:hover {
-			@include button_design($lightBlueHover, $lightBlue);
-		}
+		border-bottom-color: $lightYellow;
+		background-color: $lightYellowHover;
 	}
 }
 
+.blue {
+	@include button_design($lightBlue, $lightBlueHover);
+	&:hover {
+		@include button_design($lightBlueHover, $lightBlue);
+	}
+}
 .reset {
 	background-color: $silver;
 	color: $darkNavy;
