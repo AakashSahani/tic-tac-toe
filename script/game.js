@@ -58,15 +58,6 @@ if (player1 === 'O' && cpu === 'X') {
 gameGrid.addEventListener('click', (e) => {
 	gameGrid.style.pointerEvents = 'none';
 	handleGame(e);
-	if (openPositions.length === 0) {
-		setTimeout(() => {
-			resultModal.classList.remove('hidden');
-		}, 1000);
-		tiesNum += 1;
-		localStorage.ties = tiesNum.toString();
-		ties.innerHTML = tiesNum;
-		result_card.innerHTML = `It's a Tie`;
-	}
 });
 
 // Variable to track player turns
@@ -118,9 +109,19 @@ function handleUserClick(e, player) {
 			wins.innerHTML = winNum;
 		}
 		e.target.disabled = true;
+		openPositions = currentBoardStatus.filter(
+			(tile) => typeof tile === 'number'
+		);
+		checkForTie(player1, player2);
 	}
-	openPositions = currentBoardStatus.filter((tile) => typeof tile === 'number');
-	if (openPositions.length === 0) {
+}
+
+function checkForTie(playerOne, playerTwo) {
+	if (
+		checkWinner(currentBoardStatus, playerOne) != true &&
+		checkWinner(currentBoardStatus, playerTwo) != true &&
+		openPositions.length === 0
+	) {
 		setTimeout(() => {
 			resultModal.classList.remove('hidden');
 		}, 1000);
@@ -157,6 +158,7 @@ function handleCpuClick() {
 		}
 	}
 	openPositions = currentBoardStatus.filter((tile) => typeof tile === 'number');
+	checkForTie(player1, cpu);
 }
 
 function checkWinner(currentBoardStatus, turn) {
