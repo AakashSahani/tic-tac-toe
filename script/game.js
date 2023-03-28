@@ -65,7 +65,15 @@ function handleGame(e) {
 	if (openPositions.length != 0) {
 		if (e.target.nodeName === 'BUTTON') {
 			if (player2 != '' && cpu === '') {
-				turn === 0 ? handleUserClick(e, player1) : handleUserClick(e, player2);
+				if (player1 === 'X') {
+					turn === 0
+						? handleUserClick(e, player1)
+						: handleUserClick(e, player2);
+				} else {
+					turn === 0
+						? handleUserClick(e, player2)
+						: handleUserClick(e, player1);
+				}
 				if (turn === 0) {
 					turn = 1;
 				} else {
@@ -98,7 +106,8 @@ function handleUserClick(e, player) {
 		currentBoardStatus[parseInt(e.target.value)] = player;
 
 		if (checkWinner(currentBoardStatus, player)) {
-			result_card.innerHTML = `Player 1 wins`;
+			result_card.innerHTML =
+				player === player1 ? `Player 1 wins` : `Player 2 wins`;
 			setTimeout(() => {
 				resultModal.classList.remove('hidden');
 			}, 1000);
