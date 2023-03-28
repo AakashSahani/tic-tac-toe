@@ -120,6 +120,15 @@ function handleUserClick(e, player) {
 		e.target.disabled = true;
 	}
 	openPositions = currentBoardStatus.filter((tile) => typeof tile === 'number');
+	if (openPositions.length === 0) {
+		setTimeout(() => {
+			resultModal.classList.remove('hidden');
+		}, 1000);
+		tiesNum += 1;
+		localStorage.ties = tiesNum.toString();
+		ties.innerHTML = tiesNum;
+		result_card.innerHTML = `It's a Tie`;
+	}
 }
 
 function handleCpuClick() {
