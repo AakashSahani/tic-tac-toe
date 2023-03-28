@@ -49,7 +49,9 @@ let openPositions = currentBoardStatus;
 
 // If player choose 'O' than cpu goes first
 if (player1 === 'O' && cpu === 'X') {
-	handleCpuClick();
+	setTimeout(() => {
+		handleCpuClick();
+	}, 1000);
 }
 
 // handle tile choices
@@ -180,3 +182,9 @@ function checkWinner(currentBoardStatus, turn) {
 		return false;
 	}
 }
+
+// Reset Button
+const resetBtn = document.getElementById('reset');
+resetBtn.addEventListener('click', () => {
+	window.location.reload();
+});
