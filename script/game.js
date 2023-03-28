@@ -58,6 +58,15 @@ if (player1 === 'O' && cpu === 'X') {
 gameGrid.addEventListener('click', (e) => {
 	gameGrid.style.pointerEvents = 'none';
 	handleGame(e);
+	if (openPositions.length === 0) {
+		setTimeout(() => {
+			resultModal.classList.remove('hidden');
+		}, 1000);
+		tiesNum += 1;
+		localStorage.ties = tiesNum.toString();
+		ties.innerHTML = tiesNum;
+		result_card.innerHTML = `It's a Tie`;
+	}
 });
 
 // Variable to track player turns
@@ -88,15 +97,6 @@ function handleGame(e) {
 				cpu != '' && handleCpuClick();
 				gameGrid.style.pointerEvents = 'all';
 			}, 1000);
-		}
-		if (openPositions.length === 0) {
-			setTimeout(() => {
-				resultModal.classList.remove('hidden');
-			}, 1000);
-			tiesNum += 1;
-			localStorage.ties = tiesNum.toString();
-			ties.innerHTML = tiesNum;
-			result_card.innerHTML = `It's a Tie`;
 		}
 	}
 }
